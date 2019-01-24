@@ -1,0 +1,6 @@
+framework module SwiftyGithub {
+  umbrella header "SwiftyGithub-umbrella.h"
+
+  export *
+  module * { export * }
+}

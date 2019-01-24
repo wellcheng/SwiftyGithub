@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'Client-iOS' do
+  pod 'SwiftyGithub', :path => '../dev-Pods/SwiftyGithub'
+
+end

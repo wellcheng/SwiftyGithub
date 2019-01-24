@@ -1,0 +1,22 @@
+{
+  "name": "SwiftyGithub",
+  "version": "0.1.0",
+  "summary": "A short description of SwiftyGithub.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/wellcheng/SwiftyGithub",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wellcheng": "326955439@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/wellcheng/SwiftyGithub.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SwiftyGithub/Classes/**/*"
+}

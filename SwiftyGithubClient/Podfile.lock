@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyGithub (0.1.0)
+
+DEPENDENCIES:
+  - SwiftyGithub (from `../dev-Pods/SwiftyGithub`)
+
+EXTERNAL SOURCES:
+  SwiftyGithub:
+    :path: ../dev-Pods/SwiftyGithub
+
+SPEC CHECKSUMS:
+  SwiftyGithub: 133d654b96756b37bbaa4d7b5d9c89858025a55d
+
+PODFILE CHECKSUM: 6ffa871fe60134232937b63b82274360eeadaec9
+
+COCOAPODS: 1.3.1
