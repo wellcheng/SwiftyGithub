@@ -8,6 +8,7 @@
 import Foundation
 
 public protocol BootsTask {
+    
     func performTaskWithLaunch(launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
     
 }
