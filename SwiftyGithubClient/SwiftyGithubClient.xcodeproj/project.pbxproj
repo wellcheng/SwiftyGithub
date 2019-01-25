@@ -14,6 +14,8 @@
 		F112DAB921FA1A36001CA110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F112DAB821FA1A36001CA110 /* Assets.xcassets */; };
 		F112DABC21FA1A36001CA110 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F112DABA21FA1A36001CA110 /* LaunchScreen.storyboard */; };
 		F1A830B921FB7F7600F1ACB0 /* SwiftyBootstrap.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F1A830B821FB7F7600F1ACB0 /* SwiftyBootstrap.podspec */; };
+		F1A830BE21FB8A2600F1ACB0 /* HomeStructureTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830BD21FB8A2600F1ACB0 /* HomeStructureTask.swift */; };
+		F1A830C121FB8B3D00F1ACB0 /* HomeStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830C021FB8B3D00F1ACB0 /* HomeStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		F112DABB21FA1A36001CA110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F112DABD21FA1A36001CA110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1A830B821FB7F7600F1ACB0 /* SwiftyBootstrap.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SwiftyBootstrap.podspec; path = "../dev-Pods/SwiftyBootstrap/SwiftyBootstrap.podspec"; sourceTree = "<group>"; };
+		F1A830BD21FB8A2600F1ACB0 /* HomeStructureTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStructureTask.swift; sourceTree = "<group>"; };
+		F1A830C021FB8B3D00F1ACB0 /* HomeStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStructure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		F1A830B421FB7A2100F1ACB0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				F1A830BF21FB8B0E00F1ACB0 /* HomeStructure */,
 				F1A830B521FB7A3300F1ACB0 /* Launch */,
 			);
 			path = Module;
@@ -133,8 +138,17 @@
 		F1A830B521FB7A3300F1ACB0 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				F1A830BD21FB8A2600F1ACB0 /* HomeStructureTask.swift */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		F1A830BF21FB8B0E00F1ACB0 /* HomeStructure */ = {
+			isa = PBXGroup;
+			children = (
+				F1A830C021FB8B3D00F1ACB0 /* HomeStructure.swift */,
+			);
+			path = HomeStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,12 +233,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Client-iOS/Pods-Client-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBootstrap/SwiftyBootstrap.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyGithub/SwiftyGithub.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBootstrap.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGithub.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A830C121FB8B3D00F1ACB0 /* HomeStructure.swift in Sources */,
+				F1A830BE21FB8A2600F1ACB0 /* HomeStructureTask.swift in Sources */,
 				F112DAB421FA1A35001CA110 /* ViewController.swift in Sources */,
 				F112DAB221FA1A35001CA110 /* AppDelegate.swift in Sources */,
 			);

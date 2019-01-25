@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyBootstrap
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // setup launch context
+        let homeTask = HomeStructureTask()
+        // perform tasks
+        let taskContainer = BootsContext.shared().taskContainer
+        taskContainer.scheduleTask(task: homeTask)
+        taskContainer.didFinishLaunchingWithOptions(launchOptions: launchOptions)
+        
         return true
     }
 
