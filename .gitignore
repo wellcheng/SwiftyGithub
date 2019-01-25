@@ -63,4 +63,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-# Pods
+# All dev Pods example
+dev-Pods/*/Example
