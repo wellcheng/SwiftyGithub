@@ -13,6 +13,7 @@
 		F112DAB721FA1A35001CA110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F112DAB521FA1A35001CA110 /* Main.storyboard */; };
 		F112DAB921FA1A36001CA110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F112DAB821FA1A36001CA110 /* Assets.xcassets */; };
 		F112DABC21FA1A36001CA110 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F112DABA21FA1A36001CA110 /* LaunchScreen.storyboard */; };
+		F1A830B921FB7F7600F1ACB0 /* SwiftyBootstrap.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F1A830B821FB7F7600F1ACB0 /* SwiftyBootstrap.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +22,7 @@
 		A4B4DD3EDA8681F109219231 /* Pods_Client_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Client_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAB677742A5222054A55C2A /* Pods-Client-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Client-iOS/Pods-Client-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		BF50044810C0EDDD5D060202 /* Pods-Client-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Client-iOS/Pods-Client-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		F112DA4F21FA1967001CA110 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		F112DA9121FA1968001CA110 /* SwiftyGithub.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftyGithub.podspec; sourceTree = "<group>"; };
+		F112DA9121FA1968001CA110 /* SwiftyGithub.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SwiftyGithub.podspec; path = "../dev-Pods/SwiftyGithub/SwiftyGithub.podspec"; sourceTree = "<group>"; };
 		F112DAAF21FA1A35001CA110 /* Client-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Client-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F112DAB121FA1A35001CA110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F112DAB321FA1A35001CA110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +30,7 @@
 		F112DAB821FA1A36001CA110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F112DABB21FA1A36001CA110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F112DABD21FA1A36001CA110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1A830B821FB7F7600F1ACB0 /* SwiftyBootstrap.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SwiftyBootstrap.podspec; path = "../dev-Pods/SwiftyBootstrap/SwiftyBootstrap.podspec"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +93,8 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				F112DA4B21FA1967001CA110 /* SwiftyGithub */,
+				F112DA9121FA1968001CA110 /* SwiftyGithub.podspec */,
+				F1A830B821FB7F7600F1ACB0 /* SwiftyBootstrap.podspec */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -104,16 +106,6 @@
 				BCAB677742A5222054A55C2A /* Pods-Client-iOS.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		F112DA4B21FA1967001CA110 /* SwiftyGithub */ = {
-			isa = PBXGroup;
-			children = (
-				F112DA4F21FA1967001CA110 /* LICENSE */,
-				F112DA9121FA1968001CA110 /* SwiftyGithub.podspec */,
-			);
-			name = SwiftyGithub;
-			path = "../dev-Pods/SwiftyGithub";
 			sourceTree = "<group>";
 		};
 		F112DAB021FA1A35001CA110 /* Client-iOS */ = {
@@ -211,6 +203,7 @@
 				F112DABC21FA1A36001CA110 /* LaunchScreen.storyboard in Resources */,
 				F112DAB921FA1A36001CA110 /* Assets.xcassets in Resources */,
 				F112DAB721FA1A35001CA110 /* Main.storyboard in Resources */,
+				F1A830B921FB7F7600F1ACB0 /* SwiftyBootstrap.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
