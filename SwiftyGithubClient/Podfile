@@ -1,7 +1,10 @@
 use_frameworks!
 
 target 'Client-iOS' do
+    # custom pods
   pod 'SwiftyGithub', :path => '../dev-Pods/SwiftyGithub'
+  pod 'SwiftyBoostrap', :path => '../dev-Pods/SwiftyBoostrap'
+  
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
 
