@@ -22,7 +22,26 @@ extension HomeStructureTask: BootsTask {
         let home = HomeStructureTask()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
+        window.backgroundColor = UIColor.white
         let rootVC = UITabBarController()
+        
+        let feature = UIViewController()
+        feature.title = "feature"
+        feature.tabBarItem.title = "feature"
+        feature.view.backgroundColor = UIColor.gray
+        
+        let github = UIViewController()
+        github.title = "github"
+        github.tabBarItem.title = "github"
+        github.view.backgroundColor = UIColor.yellow
+        
+        let Mine = MineViewContoller()
+        Mine.title = "Mine"
+        Mine.tabBarItem.title = "Mine"
+        
+        rootVC.viewControllers = [feature, github, Mine]
+        rootVC.selectedIndex = 2
+        
         window.rootViewController = rootVC
         window.makeKeyAndVisible()
         

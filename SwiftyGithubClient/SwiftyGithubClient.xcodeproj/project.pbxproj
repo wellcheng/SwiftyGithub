@@ -16,6 +16,12 @@
 		F1A830B921FB7F7600F1ACB0 /* SwiftyBootstrap.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F1A830B821FB7F7600F1ACB0 /* SwiftyBootstrap.podspec */; };
 		F1A830BE21FB8A2600F1ACB0 /* HomeStructureTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830BD21FB8A2600F1ACB0 /* HomeStructureTask.swift */; };
 		F1A830C121FB8B3D00F1ACB0 /* HomeStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830C021FB8B3D00F1ACB0 /* HomeStructure.swift */; };
+		F1A830C421FC36F000F1ACB0 /* LoginAuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830C321FC36F000F1ACB0 /* LoginAuthorizeViewController.swift */; };
+		F1A830C621FCA7AE00F1ACB0 /* MineViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830C521FCA7AE00F1ACB0 /* MineViewContoller.swift */; };
+		F1A830C921FCA93A00F1ACB0 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830C821FCA93A00F1ACB0 /* UserProfileHeader.swift */; };
+		F1A830CB21FCB56700F1ACB0 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830CA21FCB56700F1ACB0 /* UserProfileViewModel.swift */; };
+		F1A830CF21FCBDD200F1ACB0 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830CE21FCBDD200F1ACB0 /* Operators.swift */; };
+		F1A830DF21FD74C000F1ACB0 /* GithubAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830DE21FD74C000F1ACB0 /* GithubAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +41,12 @@
 		F1A830B821FB7F7600F1ACB0 /* SwiftyBootstrap.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SwiftyBootstrap.podspec; path = "../dev-Pods/SwiftyBootstrap/SwiftyBootstrap.podspec"; sourceTree = "<group>"; };
 		F1A830BD21FB8A2600F1ACB0 /* HomeStructureTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStructureTask.swift; sourceTree = "<group>"; };
 		F1A830C021FB8B3D00F1ACB0 /* HomeStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStructure.swift; sourceTree = "<group>"; };
+		F1A830C321FC36F000F1ACB0 /* LoginAuthorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAuthorizeViewController.swift; sourceTree = "<group>"; };
+		F1A830C521FCA7AE00F1ACB0 /* MineViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewContoller.swift; sourceTree = "<group>"; };
+		F1A830C821FCA93A00F1ACB0 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
+		F1A830CA21FCB56700F1ACB0 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F1A830CE21FCBDD200F1ACB0 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Module/Operators.swift; sourceTree = "<group>"; };
+		F1A830DE21FD74C000F1ACB0 /* GithubAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,8 @@
 		F112DAB021FA1A35001CA110 /* Client-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F1A830DD21FD74A700F1ACB0 /* Services */,
+				F1A830CE21FCBDD200F1ACB0 /* Operators.swift */,
 				F1A830B421FB7A2100F1ACB0 /* Module */,
 				F112DAB121FA1A35001CA110 /* AppDelegate.swift */,
 				F112DAB321FA1A35001CA110 /* ViewController.swift */,
@@ -129,6 +143,7 @@
 		F1A830B421FB7A2100F1ACB0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				F1A830C221FC36BC00F1ACB0 /* Authorize */,
 				F1A830BF21FB8B0E00F1ACB0 /* HomeStructure */,
 				F1A830B521FB7A3300F1ACB0 /* Launch */,
 			);
@@ -146,9 +161,36 @@
 		F1A830BF21FB8B0E00F1ACB0 /* HomeStructure */ = {
 			isa = PBXGroup;
 			children = (
+				F1A830C721FCA82E00F1ACB0 /* Mine */,
 				F1A830C021FB8B3D00F1ACB0 /* HomeStructure.swift */,
 			);
 			path = HomeStructure;
+			sourceTree = "<group>";
+		};
+		F1A830C221FC36BC00F1ACB0 /* Authorize */ = {
+			isa = PBXGroup;
+			children = (
+				F1A830C321FC36F000F1ACB0 /* LoginAuthorizeViewController.swift */,
+			);
+			path = Authorize;
+			sourceTree = "<group>";
+		};
+		F1A830C721FCA82E00F1ACB0 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F1A830C521FCA7AE00F1ACB0 /* MineViewContoller.swift */,
+				F1A830C821FCA93A00F1ACB0 /* UserProfileHeader.swift */,
+				F1A830CA21FCB56700F1ACB0 /* UserProfileViewModel.swift */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		F1A830DD21FD74A700F1ACB0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F1A830DE21FD74C000F1ACB0 /* GithubAPIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,15 +273,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Client-iOS/Pods-Client-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBootstrap/SwiftyBootstrap.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyGithub/SwiftyGithub.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBootstrap.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGithub.framework",
 			);
@@ -289,9 +335,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A830C121FB8B3D00F1ACB0 /* HomeStructure.swift in Sources */,
+				F1A830CB21FCB56700F1ACB0 /* UserProfileViewModel.swift in Sources */,
+				F1A830C921FCA93A00F1ACB0 /* UserProfileHeader.swift in Sources */,
 				F1A830BE21FB8A2600F1ACB0 /* HomeStructureTask.swift in Sources */,
+				F1A830C621FCA7AE00F1ACB0 /* MineViewContoller.swift in Sources */,
 				F112DAB421FA1A35001CA110 /* ViewController.swift in Sources */,
 				F112DAB221FA1A35001CA110 /* AppDelegate.swift in Sources */,
+				F1A830DF21FD74C000F1ACB0 /* GithubAPIService.swift in Sources */,
+				F1A830C421FC36F000F1ACB0 /* LoginAuthorizeViewController.swift in Sources */,
+				F1A830CF21FCBDD200F1ACB0 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
