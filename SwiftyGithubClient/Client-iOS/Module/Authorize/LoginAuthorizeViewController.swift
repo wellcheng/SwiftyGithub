@@ -12,10 +12,13 @@ import WebKit
 import SnapKit
 import RxCocoa
 import RxSwift
+import Octokit
+import Toast_Swift
 
 class LoginAuthorizeViewController: ViewController {
     
     let disposeBag = DisposeBag()
+    var authWebView: WKWebView?
     
     override func viewDidLoad() {
         setupUI()
@@ -44,43 +47,45 @@ class LoginAuthorizeViewController: ViewController {
         }).disposed(by: disposeBag)
         
         dismissBtn.rx.tap.subscribe(onNext: {[weak self] in
-            self?.dismiss(animated: true, completion: nil)
+            self?.dismissSelf()
         }).disposed(by: disposeBag)
-        
     }
     
     func openLoginWeb() {
-        let authWebView = WKWebView()
-        authWebView.navigationDelegate = self
-        self.view.addSubview(authWebView)
-        authWebView.snp.makeConstraints { (make) in
+        let webview = WKWebView()
+        webview.navigationDelegate = self
+        self.view.addSubview(webview)
+        webview.snp.makeConstraints { (make) in
             make.leading.bottom.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(140.0)
         }
-        
-        let authURL = URL(string: "https://github.com/login/oauth/authorize?scope=user:email&client_id=6bf89326e90cd2877ad8")
-        let authReq = URLRequest(url: authURL!)
-        authWebView.load(authReq)
+        if let oauthStep1URL = GithubAPIService.sharedInstance.config.authenticate() {
+            let authReq = URLRequest(url: oauthStep1URL)
+            webview.load(authReq)
+        }
+        self.authWebView = webview
     }
     
-    func saveToken(token: String) {
+    func dismissSelf() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveToken(token: String, callbackURL: URL) {
+        self.view.makeToastActivity(.center)
         UserDefaults.standard.set(token, forKey: "user_token")
-        let noti = Notification(name: .TokenChanged, object: token, userInfo: nil)
-        NotificationCenter.default.post(noti)
+        self.authWebView?.removeFromSuperview()
+        self.authWebView = nil
+        GithubAPIService.sharedInstance.handleGithubCallbackURL(callbackURL) { [weak self] in
+            self?.view.hideToast()
+            self?.dismissSelf()
+        }
     }
     
 }
-
-extension Notification.Name {
-    static let TokenChanged = Notification.Name("TokenChanged")
-}
-
 
 extension LoginAuthorizeViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print("decidePolicyFor navigationAction:\n\(navigationAction)")
-        
         if  let reqURL = navigationAction.request.url,
             let components = URLComponents(string: reqURL.absoluteString),
             let host = components.host,
@@ -89,13 +94,12 @@ extension LoginAuthorizeViewController: WKNavigationDelegate {
         {
             for queryItem in queryItems {
                 if let token = queryItem.value, queryItem.name == "code" {
-                    self.saveToken(token: token)
+                    self.saveToken(token: token, callbackURL: reqURL)
                     decisionHandler(.cancel)
                     return
                 }
             }
         }
-        
         decisionHandler(.allow)
     }
     
@@ -104,23 +108,4 @@ extension LoginAuthorizeViewController: WKNavigationDelegate {
         decisionHandler(.allow)
     }
     
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("didStartProvisionalNavigation:\n\(navigation)")
-    }
-    
-    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        print("didReceiveServerRedirectForProvisionalNavigation:\n\(String(describing: navigation))")
-    }
-    
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        print("didFailProvisionalNavigation:\n\(navigation) \nError:\(error)")
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("didFinish:\n\(navigation)")
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("didFail:\n\(navigation) \nwithError:\(error)")
-    }
 }

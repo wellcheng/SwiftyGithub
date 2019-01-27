@@ -23,13 +23,14 @@ class MineViewContoller: ViewController {
         }
         
         profileHeader.signInBtn.rx.tap.asObservable().subscribe(onNext: { [weak self] (event) in
-            self?.showLoginPageView()
+            self?.signIn()
         }).disposed(by: profileHeader.bag)
     }
     
-    func showLoginPageView() {
-        let loginPage = LoginAuthorizeViewController()
-        self.present(loginPage, animated: true, completion: nil)
+    func signIn() {
+        if (!UserServices.sharedInstance.isUserLogin()) {
+            UserServices.sharedInstance.startLogin()
+        }
     }
     
 }

@@ -10,16 +10,14 @@ import Foundation
 import SwiftyBootstrap
 
 class HomeStructureTask {
-    public func setup () {
-        
-    }
+    
 }
 
 extension HomeStructureTask: BootsTask {
     
     func performTaskWithLaunch(launchOptions: [UIApplication.LaunchOptionsKey : Any]?) {
         // setup main window
-        let home = HomeStructureTask()
+        let home = HomeStructure()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.backgroundColor = UIColor.white
@@ -49,6 +47,7 @@ extension HomeStructureTask: BootsTask {
         appDelegate.window = window
         
         home.setup()
+        home.tabBarController = rootVC
     }
     
 }

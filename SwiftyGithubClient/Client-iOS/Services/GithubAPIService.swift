@@ -7,39 +7,61 @@
 //
 
 import Alamofire
+import Octokit
 
 class GithubAPIService {
     
     static let sharedInstance = GithubAPIService()
     
+    var config: OAuthConfiguration
+    var accessTokenConf: TokenConfiguration
     var clientID: String = "6bf89326e90cd2877ad8"
     var clientSecret: String = "4eada6b5da8948428fd795cad047f6355627b29f"
     
+    init() {
+        
+        config = OAuthConfiguration(token: clientID, secret: clientSecret, scopes: ["repo", "user"])
+        
+        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+        if let apiEndpoint = UserDefaults.standard.string(forKey: "apiEndpoint") {
+            accessTokenConf = TokenConfiguration(accessToken, url: apiEndpoint)
+        } else {
+            accessTokenConf = TokenConfiguration(accessToken)
+        }
+        if let _ = accessToken {
+            UserServices.sharedInstance.userLoginBehaivor.onNext(.login)
+        } else {
+            UserServices.sharedInstance.userLoginBehaivor.onNext(.logout)
+        }
+    }
     
     func hasAuthorized() -> Bool {
-        let accessToken = UserDefaults.standard.string(forKey: "access_token")
-        return accessToken != nil
+        return accessTokenConf.accessToken != nil
     }
     
-    func fetchUserToken(completionHandler: @escaping (String?) -> Void) {
-        if let token = UserDefaults.standard.string(forKey: "user_token") {
-            completionHandler(token)
-            return
+    func handleGithubCallbackURL(_ callbackURL: URL, completion:@escaping (() -> Void)) {
+        config.handleOpenURL(url: callbackURL) { accessToken in
+            UserDefaults.standard.set(accessToken.apiEndpoint, forKey: "apiEndpoint")
+            UserDefaults.standard.set(accessToken.accessToken, forKey: "accessToken")
+            self.accessTokenConf = accessToken
+            UserServices.sharedInstance.userLoginBehaivor.onNext(.login)
+            completion()
         }
-        
-        // start login
-        
+
     }
     
-    func getOauthTokenURL() -> URL {
-        let scope = "repo,user"
-        let authPath:String = "https://github.com/login/oauth/authorize?client_id=\(clientID)&scope=\(scope)"
-        return NSURL(string: authPath) as! URL
-    }
-    
-    func startOauth2Authorize() {
-        
-        
+    //
+    func getCurrentUser(completion: @escaping (_ response: ResponseObj<User>) -> Void) {
+        Octokit(accessTokenConf).me { response in
+            switch response {
+            case .success(let user):
+                print(user)
+                completion(ResponseObj.success(user))
+            case .failure(let error):
+                print(error)
+                completion(ResponseObj.failure(error.localizedDescription))
+            }
+        }?.resume()
     }
 
 }

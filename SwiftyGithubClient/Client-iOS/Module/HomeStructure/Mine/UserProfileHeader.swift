@@ -58,7 +58,6 @@ internal class UserProfileHeaderView: UIView {
         
         
         self.addSubview(signInBtn)
-//        signInBtn.setTitleColor(UIColor.blue, for: .normal)
         signInBtn.setTitle("Sign In", for: .normal)
         signInBtn.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
@@ -68,12 +67,7 @@ internal class UserProfileHeaderView: UIView {
     func bindViewModel() {
         
         viewModel.accountName.bind(to: nameLabel.rx.text).disposed(by: bag)
-        
-        viewModel.userToken.subscribe({ [weak self] event in
-            let token = event.element ?? ""
-            print("token:\(token)")
-            self?.signInBtn.isHidden = token!.count > 0
-        }).disposed(by: bag)
+        viewModel.signInBtnVisable.bind(to: signInBtn.rx.isHidden).disposed(by: bag)
     }
     
     
