@@ -11,5 +11,6 @@ target 'Client-iOS' do
   pod 'Alamofire',  '~> 5.0.0.beta.1'
   pod 'Swinject'
   pod 'OctoKit.swift'
-  pod 'Toast-Swift', '~> 4.0.0'
+  pod 'Toast'
+  pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 end

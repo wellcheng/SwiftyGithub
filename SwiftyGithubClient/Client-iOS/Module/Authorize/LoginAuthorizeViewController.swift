@@ -13,7 +13,7 @@ import SnapKit
 import RxCocoa
 import RxSwift
 import Octokit
-import Toast_Swift
+import SVProgressHUD
 
 class LoginAuthorizeViewController: ViewController {
     
@@ -71,12 +71,12 @@ class LoginAuthorizeViewController: ViewController {
     }
     
     func saveToken(token: String, callbackURL: URL) {
-        self.view.makeToastActivity(.center)
+        SVProgressHUD.show()
         UserDefaults.standard.set(token, forKey: "user_token")
         self.authWebView?.removeFromSuperview()
         self.authWebView = nil
         GithubAPIService.sharedInstance.handleGithubCallbackURL(callbackURL) { [weak self] in
-            self?.view.hideToast()
+            SVProgressHUD.dismiss()
             self?.dismissSelf()
         }
     }
