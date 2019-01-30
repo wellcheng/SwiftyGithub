@@ -10,12 +10,20 @@ import RxSwift
 import Alamofire
 import Octokit
 import RxOptional
+import MMKV
+
+struct UserConstants {
+    static let userSaveKey = "login_user"
+}
 
 class UserProfileViewModel {
-    let bag = DisposeBag()
     
     let signInBtnVisable: BehaviorSubject<Bool>
     let loginUser: BehaviorSubject<User?> = BehaviorSubject(value: nil)
+    
+    lazy var kvStore = MMKV.default()
+    
+    let bag = DisposeBag()
     
     required init() {
         signInBtnVisable = BehaviorSubject(value: UserServices.sharedInstance.isUserLogin())
@@ -24,6 +32,10 @@ class UserProfileViewModel {
                 self.requestUserProfile()
             }
         }).disposed(by: bag)
+        
+        guard let userData = self.kvStore.data(forKey: UserConstants.userSaveKey) else {return}
+        let user = try! JSONDecoder().decode(User.self, from: userData)
+        loginUser.onNext(user)
     }
     /*
      ObjectiveC.NSObject    NSObject
@@ -45,6 +57,9 @@ class UserProfileViewModel {
         GithubAPIService.sharedInstance.getCurrentUser { [weak self] responseObj in
             switch responseObj {
             case .success(let user) :
+                if let userData = try? JSONEncoder().encode(user) {
+                    self?.kvStore.set(userData, forKey: UserConstants.userSaveKey)
+                }
                 self?.loginUser.onNext(user)
             case .failure(let toast):
                 print(toast)

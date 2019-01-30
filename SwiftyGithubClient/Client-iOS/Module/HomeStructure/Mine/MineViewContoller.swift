@@ -18,7 +18,7 @@ class MineViewContoller: ViewController {
         self.view.backgroundColor = UIColor.lightGray
         self.view.addSubview(profileHeader)
         profileHeader.snp.makeConstraints { (make) in
-            make.leading.top.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(8)
+            make.leading.top.equalTo(self.view.safeAreaLayoutGuide).offset(8)
             make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-8)
             make.height.equalTo(200)
         }

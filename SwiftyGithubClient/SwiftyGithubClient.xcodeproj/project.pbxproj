@@ -46,9 +46,10 @@
 		F1A830C521FCA7AE00F1ACB0 /* MineViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewContoller.swift; sourceTree = "<group>"; };
 		F1A830C821FCA93A00F1ACB0 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		F1A830CA21FCB56700F1ACB0 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
-		F1A830CE21FCBDD200F1ACB0 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Module/Operators.swift; sourceTree = "<group>"; };
+		F1A830CE21FCBDD200F1ACB0 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		F1A830DE21FD74C000F1ACB0 /* GithubAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIService.swift; sourceTree = "<group>"; };
 		F1A830E021FD7BDE00F1ACB0 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		F1A830E322020FBB00F1ACB0 /* Client-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Client-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +130,8 @@
 		F112DAB021FA1A35001CA110 /* Client-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F1A830E222020F7800F1ACB0 /* Util */,
 				F1A830DD21FD74A700F1ACB0 /* Services */,
-				F1A830CE21FCBDD200F1ACB0 /* Operators.swift */,
 				F1A830B421FB7A2100F1ACB0 /* Module */,
 				F112DAB121FA1A35001CA110 /* AppDelegate.swift */,
 				F112DAB321FA1A35001CA110 /* ViewController.swift */,
@@ -196,6 +197,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F1A830E222020F7800F1ACB0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F1A830CE21FCBDD200F1ACB0 /* Operators.swift */,
+				F1A830E322020FBB00F1ACB0 /* Client-iOS-Bridging-Header.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +242,7 @@
 					F112DAAE21FA1A35001CA110 = {
 						CreatedOnToolsVersion = 10.1;
 						DevelopmentTeam = FYW64YS999;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -498,6 +509,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -516,6 +528,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devcharvel.Client-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Client-iOS/Util/Client-iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -529,6 +543,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -544,6 +559,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.devcharvel.Client-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Client-iOS/Util/Client-iOS-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
