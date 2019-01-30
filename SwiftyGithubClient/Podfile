@@ -6,6 +6,7 @@ target 'Client-iOS' do
   pod 'SwiftyBootstrap', :path => '../dev-Pods/SwiftyBootstrap'
   
   pod 'RxSwift',    '~> 4.0'
+  pod 'RxOptional'
   pod 'RxCocoa',    '~> 4.0'
   pod 'SnapKit',    '~> 4.0.0'
   pod 'Alamofire',  '~> 5.0.0.beta.1'
@@ -13,4 +14,6 @@ target 'Client-iOS' do
   pod 'OctoKit.swift'
   pod 'Toast'
   pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+  pod 'Kingfisher', '~> 5.1.0'
+  pod 'MMKV'
 end

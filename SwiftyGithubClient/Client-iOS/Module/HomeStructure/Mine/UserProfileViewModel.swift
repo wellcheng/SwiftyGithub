@@ -9,41 +9,43 @@
 import RxSwift
 import Alamofire
 import Octokit
-
-class UserProfileModel {
-    
-}
+import RxOptional
 
 class UserProfileViewModel {
     let bag = DisposeBag()
     
-    let accountName: BehaviorSubject<String?>
-    let avatarURL: BehaviorSubject<String?>
     let signInBtnVisable: BehaviorSubject<Bool>
+    let loginUser: BehaviorSubject<User?> = BehaviorSubject(value: nil)
     
     required init() {
         signInBtnVisable = BehaviorSubject(value: UserServices.sharedInstance.isUserLogin())
-        accountName = BehaviorSubject(value: "Non Account")
-        avatarURL = BehaviorSubject(value: nil)
-        
         UserServices.sharedInstance.userLoginBehaivor.asObserver().subscribe(onNext: { state in
             if state == .login {
                 self.requestUserProfile()
             }
         }).disposed(by: bag)
     }
-    
-    func setUser(_ user: User) {
-        accountName.onNext(user.name)
-        avatarURL.onNext(user.avatarURL)
-        signInBtnVisable.onNext(true)
-    }
-    
+    /*
+     ObjectiveC.NSObject    NSObject
+     id    Int    7522857
+     login    String?    "wellcheng"    some
+     avatarURL    String?    "https://avatars3.githubusercontent.com/u/7522857?v=4"    some
+     gravatarID    String?    ""    some
+     type    String?    "User"    some
+     name    String?    "成伟"    some
+     company    String?    "Baidu"    some
+     blog    String?    "blog.devcheng.com"    some
+     location    String?    "Beijing"    some
+     email    String?    "chengwei3269@hotmail.com"    some
+     numberOfPublicRepos    Int?    37
+     numberOfPublicGists    Int?    19
+     numberOfPrivateRepos    Int?    0
+     */
     func requestUserProfile() {
         GithubAPIService.sharedInstance.getCurrentUser { [weak self] responseObj in
             switch responseObj {
             case .success(let user) :
-                self?.setUser(user)
+                self?.loginUser.onNext(user)
             case .failure(let toast):
                 print(toast)
             }
