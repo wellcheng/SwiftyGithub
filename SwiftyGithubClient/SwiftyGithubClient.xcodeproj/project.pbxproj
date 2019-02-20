@@ -23,6 +23,8 @@
 		F1A830CF21FCBDD200F1ACB0 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830CE21FCBDD200F1ACB0 /* Operators.swift */; };
 		F1A830DF21FD74C000F1ACB0 /* GithubAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830DE21FD74C000F1ACB0 /* GithubAPIService.swift */; };
 		F1A830E121FD7BDE00F1ACB0 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830E021FD7BDE00F1ACB0 /* UserServices.swift */; };
+		F1A830E9221DB58D00F1ACB0 /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830E8221DB58D00F1ACB0 /* DiscoveryViewController.swift */; };
+		F1A830EB221DB5C500F1ACB0 /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A830EA221DB5C500F1ACB0 /* DiscoveryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		F1A830DE21FD74C000F1ACB0 /* GithubAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIService.swift; sourceTree = "<group>"; };
 		F1A830E021FD7BDE00F1ACB0 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		F1A830E322020FBB00F1ACB0 /* Client-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Client-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		F1A830E8221DB58D00F1ACB0 /* DiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
+		F1A830EA221DB5C500F1ACB0 /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 		F1A830BF21FB8B0E00F1ACB0 /* HomeStructure */ = {
 			isa = PBXGroup;
 			children = (
+				F1A830E7221DB54C00F1ACB0 /* Discovery */,
 				F1A830C721FCA82E00F1ACB0 /* Mine */,
 				F1A830C021FB8B3D00F1ACB0 /* HomeStructure.swift */,
 			);
@@ -204,6 +209,15 @@
 				F1A830E322020FBB00F1ACB0 /* Client-iOS-Bridging-Header.h */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		F1A830E7221DB54C00F1ACB0 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				F1A830E8221DB58D00F1ACB0 /* DiscoveryViewController.swift */,
+				F1A830EA221DB5C500F1ACB0 /* DiscoveryViewModel.swift */,
+			);
+			path = Discovery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,10 +381,12 @@
 				F1A830C121FB8B3D00F1ACB0 /* HomeStructure.swift in Sources */,
 				F1A830E121FD7BDE00F1ACB0 /* UserServices.swift in Sources */,
 				F1A830CB21FCB56700F1ACB0 /* UserProfileViewModel.swift in Sources */,
+				F1A830EB221DB5C500F1ACB0 /* DiscoveryViewModel.swift in Sources */,
 				F1A830C921FCA93A00F1ACB0 /* UserProfileHeader.swift in Sources */,
 				F1A830BE21FB8A2600F1ACB0 /* HomeStructureTask.swift in Sources */,
 				F1A830C621FCA7AE00F1ACB0 /* MineViewContoller.swift in Sources */,
 				F112DAB421FA1A35001CA110 /* ViewController.swift in Sources */,
+				F1A830E9221DB58D00F1ACB0 /* DiscoveryViewController.swift in Sources */,
 				F112DAB221FA1A35001CA110 /* AppDelegate.swift in Sources */,
 				F1A830DF21FD74C000F1ACB0 /* GithubAPIService.swift in Sources */,
 				F1A830C421FC36F000F1ACB0 /* LoginAuthorizeViewController.swift in Sources */,

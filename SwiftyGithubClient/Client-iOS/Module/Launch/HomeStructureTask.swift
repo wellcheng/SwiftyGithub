@@ -23,9 +23,9 @@ extension HomeStructureTask: BootsTask {
         window.backgroundColor = UIColor.white
         let rootVC = UITabBarController()
         
-        let feature = UIViewController()
-        feature.title = "feature"
-        feature.tabBarItem.title = "feature"
+        let feature = DiscoveryViewController()
+        feature.title = "Discovery"
+        feature.tabBarItem.title = "Discovery"
         feature.view.backgroundColor = UIColor.gray
         
         let github = UIViewController()

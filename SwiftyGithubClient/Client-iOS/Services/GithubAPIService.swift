@@ -63,5 +63,12 @@ class GithubAPIService {
             }
         }?.resume()
     }
+    
+    
+    func fetchRepositories() {
+        Octokit(accessTokenConf).repositories { response in
+            print(response)
+        }
+    }
 
 }
