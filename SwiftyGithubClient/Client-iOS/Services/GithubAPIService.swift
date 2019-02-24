@@ -8,6 +8,7 @@
 
 import Alamofire
 import Octokit
+import RequestKit
 
 class GithubAPIService {
     
@@ -55,19 +56,19 @@ class GithubAPIService {
         Octokit(accessTokenConf).me { response in
             switch response {
             case .success(let user):
-                print(user)
+//                print(user)
                 completion(ResponseObj.success(user))
             case .failure(let error):
-                print(error)
+//                print(error)
                 completion(ResponseObj.failure(error.localizedDescription))
             }
         }?.resume()
     }
     
     
-    func fetchRepositories() {
+    func fetchRepositories(completion: @escaping (_ response: Response<[Repository]> ) -> Void) {
         Octokit(accessTokenConf).repositories { response in
-            print(response)
+            completion(response)
         }
     }
 

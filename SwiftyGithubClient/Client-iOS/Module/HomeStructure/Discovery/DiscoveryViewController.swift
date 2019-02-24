@@ -1,3 +1,4 @@
+
 //
 //  DiscoveryViewController.swift
 //  Client-iOS
@@ -7,18 +8,51 @@
 //
 
 import UIKit
+import Octokit
 
 class DiscoveryViewController: UIViewController {
 
     lazy var viewModel = DiscoveryViewModel()
     
+    // Respository
+    var respositoryView: RespositoryView?
+    var respositoryViewModel: RespositoryViewModel?
+    
+    // Models
+    var repositories:[Repository] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        viewModel.fetchRepositories()
+        
+        self.setupRespositoryView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        viewModel.fetchRepositories()
+//        viewModel.fetchRepositories()
+    }
+    
+    func setupRespositoryView() {
+        respositoryViewModel = RespositoryViewModel()
+        guard let vm = respositoryViewModel else {
+            return
+        }
+        respositoryView = RespositoryView(vm: vm)
+        guard let view = respositoryView else {
+            return
+        }
+        view.addSubview(view)
+        
+    }
+    
+    func bindModels() {
+        _ = viewModel.repositories.subscribe(onNext: { [weak self] repositories in
+            self?.updateRespositoryViewWith(res: repositories)
+        }, onError: { error in
+            
+        }, onCompleted: nil, onDisposed: nil)
+    }
+    
+    func updateRespositoryViewWith(res repositories:[Repository]) {
+        self.respositoryViewModel?.updateRespositoryViewWith(repositories: repositories)
     }
 }

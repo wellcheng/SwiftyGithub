@@ -5,12 +5,14 @@ PODS:
   - NBNRequestKit (2.2.0)
   - OctoKit.swift (0.8.0):
     - NBNRequestKit (~> 2.0)
-  - RxCocoa (4.3.1):
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
   - RxOptional (3.6.2):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.1)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
   - SnapKit (4.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftyBootstrap (0.1.0)
@@ -22,6 +24,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.0.0.beta.1)
   - Kingfisher (~> 5.1.0)
   - MMKV
+  - NBNRequestKit
   - OctoKit.swift
   - RxCocoa (~> 4.0)
   - RxOptional
@@ -52,9 +55,10 @@ SPEC CHECKSUMS:
   MMKV: 890ba85ecf1d05546ed2c4d29fe618dbf92e3cf4
   NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
   OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
-  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyBootstrap: 0714b1dab01d8eaba8f3e07b1d0b36daa64eb81c
@@ -62,6 +66,6 @@ SPEC CHECKSUMS:
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: 14d27c88d708ad0cb391c10121f15cbd7b4d4d2f
+PODFILE CHECKSUM: eb4eb196a3ce5e234fef9b51ce09a168fe1bc350
 
 COCOAPODS: 1.3.1

@@ -10,13 +10,23 @@ import UIKit
 import RxOptional
 import RxSwift
 import Octokit
+import RequestKit
 
 class DiscoveryViewModel {
     
-    var signInBtnVisable: BehaviorSubject<[Repository]> = BehaviorSubject(value: [])
+    // read only properties
+    
+    var repositories: BehaviorSubject<[Repository]> = BehaviorSubject(value:[])
     
     func fetchRepositories() {
-        GithubAPIService.sharedInstance.fetchRepositories()
+        GithubAPIService.sharedInstance.fetchRepositories { [weak self] response in
+            switch response {
+            case .success(let repositories):
+                self?.repositories.onNext(repositories)
+            case .failure(let error):
+                self?.repositories.onError(error)
+            }
+        }
     }
 
 }
