@@ -9,6 +9,7 @@
 
 import UIKit
 import Octokit
+import SnapKit
 
 class DiscoveryViewController: UIViewController {
 
@@ -37,11 +38,17 @@ class DiscoveryViewController: UIViewController {
             return
         }
         respositoryView = RespositoryView(vm: vm)
-        guard let view = respositoryView else {
+        guard let respositoryView = respositoryView else {
             return
         }
-        view.addSubview(view)
-        
+        view.addSubview(respositoryView)
+        respositoryView.backgroundColor = .gray
+        respositoryView.snp.makeConstraints { (make) in
+            make.leading.top.equalTo(self.view.safeAreaLayoutGuide).offset(8)
+            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-8)
+            make.height.equalTo(200)
+        }
+
     }
     
     func bindModels() {
