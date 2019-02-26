@@ -38,7 +38,7 @@ extension HomeStructureTask: BootsTask {
         Mine.tabBarItem.title = "Mine"
         
         rootVC.viewControllers = [feature, github, Mine]
-        rootVC.selectedIndex = 2
+        rootVC.selectedIndex = 0
         
         window.rootViewController = rootVC
         window.makeKeyAndVisible()

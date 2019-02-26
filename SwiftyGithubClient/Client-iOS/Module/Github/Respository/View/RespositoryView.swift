@@ -9,15 +9,17 @@
 import UIKit
 import RxSwift
 import Octokit
+import SnapKit
 
 class RespositoryView: UIView {
     
     var viewModel: RespositoryViewModel
-    var collectionView: UICollectionView?
+    var collectionView: UICollectionView
     var repositories: [Repository] = []
     
-    init(vm viewModel:RespositoryViewModel) {
-        self.viewModel = viewModel
+    init(viewModel vm:RespositoryViewModel) {
+        self.viewModel = vm
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         super.init(frame: .zero)
         
         self.bindViewModel()
@@ -29,18 +31,42 @@ class RespositoryView: UIView {
     }
     
     func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView?.dataSource = self as! UICollectionViewDataSource
-        collectionView?.delegate = self as! UICollectionViewDelegate
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(RespositoryCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: RespositoryCollectionViewCell.self))
+        addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(UIEdgeInsets.zero)
+        }
     }
     
     func bindViewModel() {
-        viewModel.repositories.subscribeOn(MainScheduler.instance).subscribe(onNext: { [weak self] repositories in
-            self?.repositories = repositories
-            self?.collectionView?.reloadData()
+        _ = viewModel.repositories.observeOn(MainScheduler.asyncInstance).subscribe(onNext: { [weak self] repositories in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.repositories = repositories
+            strongSelf.collectionView.reloadData()
         })
     }
+}
+
+extension RespositoryView: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return self.repositories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RespositoryCollectionViewCell.self), for: indexPath)
+        return cell
+        
+    }
     
 }

@@ -26,10 +26,12 @@ class DiscoveryViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupRespositoryView()
+        self.bindModels()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        viewModel.fetchRepositories()
+        viewModel.fetchRepositories()
     }
     
     func setupRespositoryView() {
@@ -37,7 +39,7 @@ class DiscoveryViewController: UIViewController {
         guard let vm = respositoryViewModel else {
             return
         }
-        respositoryView = RespositoryView(vm: vm)
+        respositoryView = RespositoryView(viewModel: vm)
         guard let respositoryView = respositoryView else {
             return
         }
@@ -45,8 +47,7 @@ class DiscoveryViewController: UIViewController {
         respositoryView.backgroundColor = .gray
         respositoryView.snp.makeConstraints { (make) in
             make.leading.top.equalTo(self.view.safeAreaLayoutGuide).offset(8)
-            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-8)
-            make.height.equalTo(200)
+            make.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-8)
         }
 
     }
